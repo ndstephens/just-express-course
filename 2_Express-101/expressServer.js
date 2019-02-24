@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+//* 'app.all()' will accept ALL HTTP methods (GET, POST, etc)
+//* '*' means any path
 app.all('*', (req, res) => {
   // Express handles the basic Headers
   res.send('<h1>Home Page</h1>')
