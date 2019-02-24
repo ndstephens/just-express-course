@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "main": "expressServer.js",
-  "scripts": {
-    "start": "node expressServer.js",
-    "dev": "nodemon expressServer.js"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "Nate Stephens <ndstephens@gmail.com>",
   "license": "MIT",
