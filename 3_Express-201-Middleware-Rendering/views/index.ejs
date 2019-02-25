@@ -1,1 +1,6 @@
-<h1>Rendered File EJS</h1>
+<% include head %>
+
+<h1><%= msg %></h1>
+<h2>res.locals.validated = <%= validated %></h2>
+<%- html%> <%# this is a comment %>
+<!-- can still use HTML comments, but these will be in the DOM -->
