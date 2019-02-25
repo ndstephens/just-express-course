@@ -10,7 +10,10 @@
   "author": "Nate Stephens <ndstephens@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "helmet": "^3.15.1"
+    "hbs": "^4.0.2",
+    "helmet": "^3.15.1",
+    "pug": "^2.0.3"
   }
 }
