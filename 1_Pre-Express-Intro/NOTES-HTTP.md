@@ -32,9 +32,9 @@
 ---
 
 ### `RESPONSE`
-| SECTION    | EXAMPLE                     | DESCRIPTION                  |
-| ---------- | --------------------------- | ---------------------------- |
-| Start Line | HTTP/1.1 200 OK             | Protocol / Status Code       |
-| Headers    | "Content-Type": "text/html" | Type of data being sent back |
-| Blank Line |                             |                              |
-| Body       | <!doctype html><html...>    | The HTML string              |
+| SECTION    | EXAMPLE                     | DESCRIPTION                      |
+| ---------- | --------------------------- | -------------------------------- |
+| Start Line | HTTP/1.1 200 OK             | Protocol / Status Code / Message |
+| Headers    | "Content-Type": "text/html" | Type of data being sent back     |
+| Blank Line |                             |                                  |
+| Body       | <!doctype html><html...>    | The HTML string                  |

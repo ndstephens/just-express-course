@@ -15,6 +15,7 @@
 - The `Transport` and `Network` layers together form the `Internet Protocol Suite` or `TCP/IP`
 - `HTTP` uses `TCP`
 - The `Transport` layer creates 2^16 (or ~65,000) `ports` on your computer
+  - only use ports above 1000
   - such as when you start a server on `localhost:3000`, port 3000
   - `HTTP` servers are usually on `port` 80
   - `HTTPS` usually on `port` 443

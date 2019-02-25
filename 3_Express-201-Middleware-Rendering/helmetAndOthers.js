@@ -3,7 +3,7 @@ const helmet = require('helmet')
 
 const app = express()
 
-//* HELMET is VERY common middleware for good header security
+//* HELMET is VERY common middleware for good HEADER SECURITY
 //? PUT IT NEAR THE TOP OF THE APP
 app.use(helmet())
 
@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: false }))
 app.post('/server', (req, res) => {
   console.log('HEADERS:', req.headers)
   //* the middleware above is what provides 'req.body'
+  //? 'express.json' and 'express.urlencoded' both use 'body-parser'
   console.log('BODY:', req.body)
 
   res.json('Test')
