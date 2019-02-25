@@ -1,0 +1,17 @@
+{
+  "name": "4_301-Req-Res-Router-Generator",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Nate Stephens <ndstephens@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "helmet": "^3.15.1"
+  }
+}
