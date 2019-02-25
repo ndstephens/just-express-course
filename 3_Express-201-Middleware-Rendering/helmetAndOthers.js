@@ -14,12 +14,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 //? for 'content-type: application/x-www-form-urlencoded' (jQuery, forms, etc)
 
-app.post('/ajax', (req, res) => {
+app.post('/server', (req, res) => {
   console.log('HEADERS:', req.headers)
   //* the middleware above is what provides 'req.body'
   console.log('BODY:', req.body)
-  // Response with the string 'Test' after processing AJAX request
-  res.send('Test')
+
+  res.json('Test')
 })
 
 //
