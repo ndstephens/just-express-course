@@ -64,6 +64,21 @@ app.get('/welcome', (req, res, next) => {
   //* 'req.cookies' object will have a prop for every named cookie that has been set (requires 'cookie-parser' middleware)
 })
 
+//? ':storyId' is a WildCard
+app.get('/story/:storyId', (req, res, next) => {
+  //* req.params object has a prop for each wildcard
+  res.send(`<h1>Story ${req.params.storyId}</h1>`)
+})
+
+app.get('/statement', (req, res, next) => {
+  // res.sendFile(path.join(__dirname, 'userStatements/bank-statement.png'))
+  res.download(
+    path.join(__dirname, 'userStatements/bank-statement.png'),
+    'Your-statement.png', // custom filename (optional)
+    err => console.log(err), // callback after file is sent
+  )
+})
+
 app.get('/logout', (req, res, next) => {
   //* res.clearCookie takes 1 arg: the cookie to clear (by name)
   res.clearCookie('username')
