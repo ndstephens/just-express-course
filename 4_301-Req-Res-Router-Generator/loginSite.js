@@ -15,12 +15,30 @@ app.use(cookieParser())
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
+//? CUSTOM MIDDLEWARE
+app.use((req, res, next) => {
+  if (req.query.msg === 'fail') {
+    //* res.locals is available to all middleware and the view engine (useful to pass around info)
+    res.locals.msg = `Sorry. This username and password combo does not exist`
+  } else {
+    res.locals.msg = ''
+  }
+  next()
+})
+
 app.get('/', (req, res, next) => {
   res.send('test test')
 })
 
 app.get('/login', (req, res, next) => {
+  //* req.query is an object with props from the query string
+  //* only put INSECURE data in the query string
+  // console.log(req.query)
+  //? instead of accessing req.query.msg here specifically, we used middleware above so that it was handled on ALL request.  not necessary, just a design choice
   res.render('login')
+  // res.render('login', {
+  //   msg: req.query.msg,
+  // })
 })
 
 app.post('/process_login', (req, res, next) => {
@@ -34,7 +52,8 @@ app.post('/process_login', (req, res, next) => {
     //* res.redirect takes 1 arg: where to send the browser
     res.redirect('/welcome')
   } else {
-    res.redirect('/login?msg=fail')
+    //* '?' is a special character in the URL, everything after it is NOT part of the path, it's the query string
+    res.redirect('/login?msg=fail&test=hello')
   }
 })
 
