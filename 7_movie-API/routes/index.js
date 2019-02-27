@@ -14,15 +14,11 @@ const movies = require('../data/movies')
 router.get('/most_popular', (req, res, next) => {
   const page = req.query.page || 1
 
-  if (req.query.api_key !== '123456789') {
-    res.json('Invalid API key')
-  } else {
-    const mostPopularMovies = movies.filter(movie => movie.most_popular)
-    //? return only 20 at a time, based on page number
-    const results = mostPopularMovies.slice((page - 1) * 20, page * 20)
-    res.json({ results })
-    //? send 'results' array in an object b/c that's how the calling UI function expects it (we're mirroring how the MovieDB API returns the data)
-  }
+  const mostPopularMovies = movies.filter(movie => movie.most_popular)
+  //? return only 20 at a time, based on page number
+  const results = mostPopularMovies.slice((page - 1) * 20, page * 20)
+  res.json({ results })
+  //? send 'results' array in an object b/c that's how the calling UI function expects it (we're mirroring how the MovieDB API returns the data)
 })
 
 module.exports = router
