@@ -5,14 +5,19 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1 class="single-movie-title"></h1>
-
-        <h3 class="single-movie-title"></h3>
-
-        <img src="" />
-
+        <h1 class="single-movie-title">
+          <%= parsedData.title %>
+        </h1>
+        <h3 class="single-movie-title">
+          <%= parsedData.tagline %>
+        </h3>
+        <a href="<%= parsedData.homepage %>">
+          <img src="<%= imageBaseUrl + parsedData.poster_path %>" />
+        </a>
         <p class="overview-header">
-          Movie Synopsis: <span class="single-movie-overview"> </span>
+          Movie Synopsis: <span class="single-movie-overview">
+            <%= parsedData.overview %>
+          </span>
         </p>
       </div>
     </div>
@@ -51,12 +56,24 @@
           </button>
           <h4 class="modal-title" id="myModalLabel">Movie Information</h4>
         </div>
-        <div class="modal-body"></div>
+        <div class="modal-body">
+          <a
+            href="https://www.imdb.com/title/<%= parsedData.imdb_id %>"
+            target="_blank">
+            IMDB Link
+          </a>
+          <p>Budget: <%= parsedData.budget %></p>
+          <p>Revenue: <%= parsedData.revenue %></p>
+          <p>Release Date: <%= parsedData.release_date %></p>
+          <p>Production Company: <%= parsedData.production_companies[0].name %></p>
+        </div>
         <div class="modal-footer">
           <button class="btn btn-default" data-dismiss="modal" type="button">
             Close
           </button>
-          <button class="btn btn-primary" type="button">Save changes</button>
+          <button class="btn btn-primary" type="button">
+            Save changes
+          </button>
         </div>
       </div>
     </div>

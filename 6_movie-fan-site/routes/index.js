@@ -26,14 +26,16 @@ router.get('/', function(req, res, next) {
         parsedData: response.data.results,
       })
     })
-    .catch(err => console.log('Error', err))
+    .catch(err => console.log(err))
 })
 
 router.get('/movie/:id', (req, res, next) => {
   axios
     .get(`${apiBaseUrl}/movie/${req.params.id}?api_key=${apiKey}`)
     .then(response => {
-      res.redirect(response.data.homepage)
+      res.render('single-movie', {
+        parsedData: response.data,
+      })
     })
     .catch(err => console.log(err))
 })
