@@ -8,7 +8,10 @@ const movieDetails = require('../data/movieDetails')
 router.get('/:movieId', function(req, res, next) {
   const movieId = +req.params.movieId
   const movie = movieDetails.find(movie => movie.id === movieId)
-  res.json(movie)
+  if (movie) {
+    res.json(movie)
+  }
+  res.sendStatus(404)
 })
 
 module.exports = router
