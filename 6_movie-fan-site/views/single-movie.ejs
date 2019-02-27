@@ -15,7 +15,8 @@
           <img src="<%= imageBaseUrl + parsedData.poster_path %>" />
         </a>
         <p class="overview-header">
-          Movie Synopsis: <span class="single-movie-overview">
+          Movie Synopsis:
+          <span class="single-movie-overview">
             <%= parsedData.overview %>
           </span>
         </p>
@@ -59,13 +60,16 @@
         <div class="modal-body">
           <a
             href="https://www.imdb.com/title/<%= parsedData.imdb_id %>"
-            target="_blank">
+            target="_blank"
+          >
             IMDB Link
           </a>
           <p>Budget: <%= parsedData.budget %></p>
           <p>Revenue: <%= parsedData.revenue %></p>
           <p>Release Date: <%= parsedData.release_date %></p>
-          <p>Production Company: <%= parsedData.production_companies[0].name %></p>
+          <p>
+            Production Company: <%= parsedData.production_companies[0].name %>
+          </p>
         </div>
         <div class="modal-footer">
           <button class="btn btn-default" data-dismiss="modal" type="button">
