@@ -4,8 +4,12 @@ const express = require('express')
 
 const router = express.Router()
 
-const apiKey = process.env.MOVIEDB_API_KEY
-const apiBaseUrl = 'http://api.themoviedb.org/3'
+//? FOR USE WITH OUR API
+const apiKey = '123456789'
+const apiBaseUrl = 'http://localhost:3030'
+//? FOR USE WITH THE-MOVIE-DB API
+// const apiKey = process.env.MOVIEDB_API_KEY
+// const apiBaseUrl = 'http://api.themoviedb.org/3'
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${apiKey}`
 const imageBaseUrl = 'http://image.tmdb.org/t/p/w300'
 
