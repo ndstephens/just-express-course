@@ -30,11 +30,30 @@ router.get('/', function(req, res, next) {
 })
 
 router.get('/movie/:id', (req, res, next) => {
+  const movieUrl = `${apiBaseUrl}/movie/${req.params.id}?api_key=${apiKey}`
   axios
-    .get(`${apiBaseUrl}/movie/${req.params.id}?api_key=${apiKey}`)
+    .get(movieUrl)
     .then(response => {
       res.render('single-movie', {
         parsedData: response.data,
+      })
+    })
+    .catch(err => console.log(err))
+})
+
+router.post('/search', (req, res, next) => {
+  const cat = req.body.cat
+  const searchTerm = encodeURI(req.body.movieSearch)
+  const searchUrl = `${apiBaseUrl}/search/${cat}/?query=${searchTerm}&api_key=${apiKey}`
+
+  axios
+    .get(searchUrl)
+    .then(response => {
+      res.render('index', {
+        parsedData:
+          cat === 'movie'
+            ? response.data.results
+            : response.data.results[0].known_for,
       })
     })
     .catch(err => console.log(err))
