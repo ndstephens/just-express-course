@@ -358,6 +358,7 @@ const movies = [
     overview:
       'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers.',
     release_date: '2002-05-01',
+    most_popular: true,
   },
   {
     vote_count: 8938,
@@ -375,6 +376,7 @@ const movies = [
     overview:
       'Following the events of Captain America: Civil War, Peter Parker, with the help of his mentor Tony Stark, tries to balance his life as an ordinary high school student in Queens, New York City, with fighting crime as his superhero alter ego Spider-Man as a new threat, the Vulture, emerges.',
     release_date: '2017-07-05',
+    most_popular: true,
   },
   {
     vote_count: 5776,
