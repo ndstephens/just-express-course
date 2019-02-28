@@ -24,6 +24,8 @@ router.use((req, res, next) => {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  //* there is now access to the logged in user's account info on 'req.user'
+  console.log(req.user) //* Created by Passport
   axios
     .get(nowPlayingUrl)
     .then(response => {
@@ -35,7 +37,16 @@ router.get('/', function(req, res, next) {
     .catch(err => console.log(err))
 })
 
+//* LOGIN ROUTE W/ PASSPORT
 router.get('/login', passport.authenticate('github'))
+
+router.get(
+  '/auth',
+  passport.authenticate('github', {
+    successRedirect: '/',
+    failureRedirect: '/loginFailed',
+  }),
+)
 
 router.get('/movie/:id', (req, res, next) => {
   const movieUrl = `${apiBaseUrl}/movie/${req.params.id}?api_key=${apiKey}`

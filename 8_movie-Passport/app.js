@@ -6,7 +6,9 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const helmet = require('helmet')
-//? PASSPORT
+const session = require('express-session')
+
+//* PASSPORT IMPORTS
 const passport = require('passport')
 const GitHubStrategy = require('passport-github').Strategy
 
@@ -27,6 +29,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 //* PASSPORT CONFIG
+app.use(
+  session({
+    secret: 'express site',
+    resave: false,
+    saveUninitialized: true,
+    // cookie: { secure: true },
+  }),
+)
+app.use(passport.initialize())
+app.use(passport.session())
 passport.use(
   new GitHubStrategy(
     {
@@ -35,10 +47,13 @@ passport.use(
       callbackURL: process.env.GITHUB_CALLBACK_URL,
     },
     function(accessToken, refreshToken, profile, cb) {
-      console.log(profile)
+      // console.log(profile)
+      return cb(null, profile)
     },
   ),
 )
+passport.serializeUser((user, cb) => cb(null, user))
+passport.deserializeUser((user, cb) => cb(null, user))
 
 // ROUTERS
 app.use('/', indexRouter)
