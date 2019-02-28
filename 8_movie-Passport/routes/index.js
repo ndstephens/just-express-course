@@ -1,6 +1,7 @@
 require('dotenv').config()
 const axios = require('axios')
 const express = require('express')
+const passport = require('passport')
 
 const router = express.Router()
 
@@ -33,6 +34,8 @@ router.get('/', function(req, res, next) {
     })
     .catch(err => console.log(err))
 })
+
+router.get('/login', passport.authenticate('github'))
 
 router.get('/movie/:id', (req, res, next) => {
   const movieUrl = `${apiBaseUrl}/movie/${req.params.id}?api_key=${apiKey}`
