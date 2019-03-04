@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
         parsedData: response.data.results,
       })
     })
-    .catch(err => console.log(err))
+    .catch(err => next())
 })
 
 router.get('/movie/:id', (req, res, next) => {
@@ -43,7 +43,7 @@ router.get('/movie/:id', (req, res, next) => {
         parsedData: response.data,
       })
     })
-    .catch(err => console.log(err))
+    .catch(err => next())
 })
 
 router.post('/search', (req, res, next) => {
@@ -61,7 +61,7 @@ router.post('/search', (req, res, next) => {
             : response.data.results[0].known_for,
       })
     })
-    .catch(err => console.log(err))
+    .catch(err => next())
 })
 
 module.exports = router
