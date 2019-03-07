@@ -26,7 +26,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Verify API key middleware
+//* Verify API key middleware
 app.use((req, res, next) => {
   if (req.query.api_key !== '123456789') {
     res.status(401).json('Invalid API key')
@@ -40,6 +40,7 @@ app.use('/', indexRouter)
 app.use('/movie', movieRouter)
 app.use('/search', searchRouter)
 
+//? FOR ERROR HANDLING, if any route above can not send back appropriate data, can just use 'next()' which will pass it down to here, which creates a 404 error out of the response
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404))

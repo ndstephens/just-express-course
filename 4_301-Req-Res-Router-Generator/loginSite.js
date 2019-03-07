@@ -9,7 +9,7 @@ const app = express()
 app.use(helmet())
 app.use(express.static('public'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded())
 app.use(cookieParser())
 
 app.set('view engine', 'ejs')
@@ -53,7 +53,7 @@ app.post('/process_login', (req, res, next) => {
     res.redirect('/welcome')
   } else {
     //* '?' is a special character in the URL, everything after it is NOT part of the path, it's the query string
-    res.redirect('/login?msg=fail&test=hello')
+    res.redirect('/login?msg=fail')
   }
 })
 

@@ -15,13 +15,13 @@ const validateUser = (req, res, next) => {
 }
 
 //? 'validateUser' will run for EVERY request (ALL METHODS AND PATHS)
-// app.use(validateUser)
+app.use(validateUser)
 
 //? 'validateUser' will ONLY run for the '/admin' path (ALL METHODS)
 // app.use('/admin', validateUser)
 
 //? 'validateUser' will ONLY run for the '/admin' path (ONLY GET METHOD)
-app.get('/admin', validateUser)
+// app.get('/admin', validateUser)
 
 //* With 'app.use()'....'use' means ALL METHODS, doesn't specify get, post, etc
 //? That's why 'app.use()' will act on EVERY incoming REQUEST unless otherwise specified, and often send the result onto the next piece of middleware

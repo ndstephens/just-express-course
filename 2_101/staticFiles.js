@@ -6,7 +6,7 @@ const app = express()
 //? makes retrieving CSS and image files very easy, or even static pages
 app.use(express.static('public'))
 
-//* can have multiple static directories
+//* CAN HAVE MULTIPLE STATIC DIRECTORIES
 // app.use(express.static('another_directory'))
 //? HOWEVER, never expose sensitive files with this, only public files
 

@@ -16,9 +16,7 @@ const requireJSON = (req, res, next) => {
 
 //? GET top-rated movie
 router.get('/top_rated', (req, res, next) => {
-  console.log('hello')
   const moviesSorted = movies.sort((a, b) => b.vote_average - a.vote_average)
-  console.log(moviesSorted)
   res.json(moviesSorted[0])
 })
 
@@ -30,7 +28,8 @@ router.get('/:movieId', function(req, res, next) {
   if (movie) {
     res.json(movie)
   }
-  res.sendStatus(404)
+  // res.sendStatus(404)
+  next()
 })
 
 //? POST rating by movie ID
